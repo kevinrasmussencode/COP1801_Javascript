@@ -2,18 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Web Page</title>
-    <h1 style="color: mediumspringgreen";>Please read the console log to see the output of a reversed input.</h1>
-    <script type="text/javascript">
 
-        //var numbers = /^[0-9]+$/;
-        var reverseWord = prompt("Please enter a word.");
-        var rev =  reverseWord.split("").reverse().join("");
-        document.write("Here is your string reversed: " + rev + "<br>");
-        console.log("This is your input reversed: " + rev );
+    <!-- JQuery styling and CDN files -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Custom css -->
+    <style>
+        div.ui-input-text { width: 200px !important;}
+        button { width: 200px !important; }
+    </style>
+
+
+    <title>My Web Page</title>
+
+    <!-- Form HTML -->
+    <form id="form1">
+        Please enter any text here: <input id="rasmussen" type="text" name="string"/>
+    </form>
+        <p>Click the button below to display your entry.</p>
+
+    <!-- Javascript button to capture and display the input -->
+    <button onclick="getInfo()">Try it</button>
+    <p id="data"></p>
+    </head>
+    <body>
+
+   <!-- Javascript function for the user input -->
+    <script type="text/javascript">
+    function getInfo() {
+     var info = document.getElementById("form1");
+     var text = "";
+     var i;
+     for (i=0; i < info.length; i++) {
+        text += info.elements[i].value + "<br>";
+     }
+        document.getElementById("data").innerHTML = text;
+    }
 
     </script>
-</head>
-<body>
-</body>
-</html>
+    </body>
+  </html>
