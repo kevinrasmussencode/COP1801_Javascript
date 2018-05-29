@@ -10,61 +10,42 @@
 
     <!-- Custom css -->
     <style>
-
-        div {
-            text-style: bold !important;
-            color: blue !important;
-            font-weight: 700 !important;
-        }
-
+        div.ui-input-text { width: 200px !important;}
+        button { width: 200px !important; }
     </style>
+
+
     <title>My Web Page</title>
-</head>
-<body>
 
-<!-- Javascript prompt for the user input with exception handling -->
-<script type="text/javascript">
-    var letters = /[A-z]/;
+    <!-- Form HTML -->
+    <form id="form1">
+        Please enter any text here: <input id="rasmussen" type="text" name="string"/>
+    </form>
+        <p>Click the button below to display your entry.</p>
 
-    <!-- first prompt for information -->
-    var string1 = prompt("Please enter a word.");
-    if (string1.match(letters)) {
-        document.write(string1 + " is your first word " +"<br>");
-    } else if (string1.match !== letters) {
-        alert("You have to enter letters only!");
-    } else {
-       document.write(" Error" +"<br>");
+    <!-- Javascript button to capture and display the input -->
+    <button onclick="getInfo()">Try it</button>
+    <p id="data"></p>
+    </head>
+    <body>
+
+   <!-- Javascript function for the user input -->
+    <script type="text/javascript">
+    function getInfo() {
+     var info = document.getElementById("form1");
+     var text = "";
+     var i;
+     for (i=0; i < info.length; i++) {
+        text += info.elements[i].value + "<br>";
+     }
+        document.getElementById("data").innerHTML = text;
+
+     // Match the string data for custom output
+     if (text.match("Student")) {
+         document.getElementById("data").innerHTML = "I am a Rasmussen student";
+     }
     }
 
-    <!-- second prompt for information -->
-    var string2 = prompt("Please enter another word.");
-    if (string2.match(letters)) {
-        document.write(string2 + " is your second word " +"<br>");
-    } else if (string2.match !== letters) {
-        alert("You have to enter letters only!");
-    } else {
-        document.write(" Error" +"<br>");
-    }
-
-    <!-- third prompt for information -->
-    var string3 = prompt("Please enter your last word.");
-    if (string3.match(letters)) {
-        document.write(string3 + " is your third word " +"<br>");
-    } else if (string3.match !== letters) {
-        alert("You have to enter letters only!");
-    } else {
-        document.write(" Error" +"<br>");
-    }
-
-    <!-- variable to sort the array as well as write the value to the screen -->
-    var sortingVar = [string1, string2, string3];
-    sortingVar.sort();
-    document.write("These are you sorted words: " + " " + sortingVar +"<br>");
-    console.log(string1);
-    console.log(string2);
-    console.log(string3);
-    console.log(sortingVar)
-
-</script>
-</body>
-</html>
+    </script>
+    </body>
+  </html>
