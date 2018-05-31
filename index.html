@@ -19,33 +19,40 @@
 
     <!-- Form HTML -->
     <form id="form1">
-        Please enter any text here: <input id="rasmussen" type="text" name="string"/>
+        First name: <input type="text" name="fname" id="fname1"><br>
+        Last name: <input type="text" name="lname"  id="lname1"><br>
+        Address: <input type="text" name="address"  id="address1"><br>
+        City: <input type="text" name="city"  id="city1"><br>
+        State: <input type="text" name="state"  id="state1"><br>
+
     </form>
-        <p>Click the button below to display your entry.</p>
+    <p>Click the button below to display your entry.</p>
 
     <!-- Javascript button to capture and display the input -->
     <button onclick="getInfo()">Try it</button>
-    <p id="data"></p>
-    </head>
-    <body>
+    <p id="data" style="color: blue;"></p>
+</head>
+<body>
 
-   <!-- Javascript function for the user input -->
-    <script type="text/javascript">
+<!-- Javascript function for the user input -->
+<script type="text/javascript">
     function getInfo() {
-     var info = document.getElementById("form1");
-     var text = "";
-     var i;
-     for (i=0; i < info.length; i++) {
-        text += info.elements[i].value + "<br>";
-     }
+        var info = document.getElementById("form1");
+        var text = "";
+        var i;
+        for (i=0; i < info.length; i++) {
+            text += info.elements[i].value + "<br>";
+        }
         document.getElementById("data").innerHTML = text;
 
-     // Match the string data for custom output
-     if (text.match("Student")) {
-         document.getElementById("data").innerHTML = "I am a Rasmussen student";
-     }
+        // Log the form input into the console
+        console.log(text);
     }
 
-    </script>
-    </body>
-  </html>
+
+
+
+
+</script>
+</body>
+</html>
