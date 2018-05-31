@@ -12,6 +12,8 @@
     <style>
         div.ui-input-text { width: 200px !important;}
         button { width: 200px !important; }
+        th { padding-top: 10px;}
+        tr {text-align: center;}
     </style>
 
 
@@ -19,18 +21,30 @@
 
     <!-- Form HTML -->
     <form id="form1">
-        First name: <input type="text" name="fname" id="fname1"><br>
-        Last name: <input type="text" name="lname"  id="lname1"><br>
-        Address: <input type="text" name="address"  id="address1"><br>
-        City: <input type="text" name="city"  id="city1"><br>
-        State: <input type="text" name="state"  id="state1"><br>
+        First name: <input type="text" name="fname" id="fname1" required><br>
+        Last name: <input type="text" name="lname"  id="lname1" required><br>
+        Address: <input type="text" name="address"  id="address1" required><br>
+        City: <input type="text" name="city"  id="city1" required><br>
+        State: <input type="text" name="state"  id="state1" required><br>
 
     </form>
     <p>Click the button below to display your entry.</p>
 
     <!-- Javascript button to capture and display the input -->
     <button onclick="getInfo()">Try it</button>
-    <p id="data" style="color: blue;"></p>
+
+        <!-- html table with set width and id for javascript variable output from form input -->
+    <table>
+        <tr>
+            <th style="width: 100px;">First Name</th>
+            <th style="width: 100px;">Last Name</th>
+            <th style="width: 100px;">Address</th>
+            <th style="width: 100px;">City</th>
+            <th style="width: 100px;">State</th>
+        </tr>
+        <tr id ="data" style="width: 100px;">
+        </tr>
+    </table>
 </head>
 <body>
 
@@ -41,18 +55,17 @@
         var text = "";
         var i;
         for (i=0; i < info.length; i++) {
-            text += info.elements[i].value + "<br>";
+            text += "<td>" + info.elements[i].value + "</td>";
         }
+
         document.getElementById("data").innerHTML = text;
 
         // Log the form input into the console
         console.log(text);
     }
 
-
-
-
-
 </script>
+
+
 </body>
 </html>
